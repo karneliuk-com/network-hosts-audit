@@ -1,0 +1,10 @@
+---
+core:
+  platform: eos
+  data:
+    role: core
+access:
+  platform: ios
+  data:
+    role: access
+...

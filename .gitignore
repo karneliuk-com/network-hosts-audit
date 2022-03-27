@@ -1,0 +1,7 @@
+**/__pycache__/
+.vscode/
+venv/
+raw/
+.env
+inventory/hosts.yaml
+nornir.log

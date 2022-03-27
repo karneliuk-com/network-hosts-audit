@@ -1,0 +1,11 @@
+---
+username: test
+password: test
+## Add scrapli details
+connection_options:
+  scrapli:
+    port: 22
+    extras:
+      ssh_config_file: True
+      auth_strict_key: False
+...

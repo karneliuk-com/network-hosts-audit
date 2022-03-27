@@ -1,5 +1,5 @@
-# Network Host Lookup
-Real world tool to dump all the IPv4 hosts in your network and find where they are connected (to which access switch) assuming that interface description is correct (the latter can easily be replaced with LLDP or CDP data, if available).
+# Network Hosts Audit and Lookup
+Real world tool to audit all the IPv4 hosts in your network and find where they are connected (to which access switch) assuming that interface description is correct (the latter can easily be replaced with LLDP or CDP data, if available).
 
 ## Used Frameworks
 - Nornir

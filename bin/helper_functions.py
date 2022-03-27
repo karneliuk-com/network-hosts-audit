@@ -7,6 +7,9 @@ import os
 
 # Functions
 def get_args():
+    """
+    This helper function helps to control the execution of the tool via the CLI arguments.
+    """
     parser = ArgumentParser()
 
     parser.add_argument(
@@ -45,6 +48,10 @@ def get_args():
 
 
 def get_credentials(creds_type: str) -> tuple:
+    """
+    This helper function allows the specify the credentials in a ways 
+    different to putting them in a clear text in the configuration file.
+    """
     result = ()
 
     if creds_type == "environment":
@@ -56,14 +63,21 @@ def get_credentials(creds_type: str) -> tuple:
     return result
 
 
-def get_unique_hosts(arp_table: str) -> dict:
+def get_unique_hosts(arp_table) -> dict:
+    """
+    This helper function performs conversion of the ARP table into a dictionary.
+    """
     return _normalise_data(raw_input=arp_table, 
                            unique_field=0, 
                            mapping={"mac": 2}, 
                            filter=["Address"])
 
 
-def match_ip_mac_port_description(arp_table: dict, mac_table: str, interfaces_table: str) -> dict:
+def match_ip_mac_port_description(arp_table: dict, mac_table, interfaces_table) -> dict:
+    """
+    This helper function performs conversion of the MAC address tables, 
+    interfaces description table, and collected ARP in a singe dictionary.
+    """
     result = arp_table
 
     normailed_mac_table = _normalise_data(raw_input=mac_table, 
@@ -106,6 +120,10 @@ def match_ip_mac_port_description(arp_table: dict, mac_table: str, interfaces_ta
 
 
 def _normalise_data(raw_input, unique_field: int, mapping: dict, filter: list, add_host: bool = False) -> dict:
+    """
+    This helper functions allows to convery semi-formatted text into a structure 
+    dictionary by choosing a key field and other important fields for nested data.
+    """
     result = {}
 
     for hostname, entry_1_level in raw_input.items():
@@ -131,6 +149,9 @@ def _normalise_data(raw_input, unique_field: int, mapping: dict, filter: list, a
 
 
 def data_lookup(dict_for_lookup: dict, query: str) -> dict:
+    """
+    This helper functions performs a data lookup in a provided dictionary based on a provided argument.
+    """
     result = {}
 
     query = query.split("=")
